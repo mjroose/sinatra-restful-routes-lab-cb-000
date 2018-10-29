@@ -11,6 +11,14 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
 
+  get '/:id' do
+    if @recipe = Recipe.find(params[:id])
+      erb :show
+    else
+      redirect '/'
+    end
+  end
+
   post '/recipes' do
     recipe = Recipe.new(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
 
