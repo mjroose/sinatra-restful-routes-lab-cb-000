@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
     recipe = Recipe.new(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
 
     if recipe.save
-      redirect '/'
+      redirect '/recipes'
     end
   end
 
@@ -41,7 +41,7 @@ class ApplicationController < Sinatra::Base
       @recipe.save
     end
 
-    redirect '/'
+    redirect '/recipes'
   end
 
   delete '/recipes/:id/delete' do
@@ -49,6 +49,6 @@ class ApplicationController < Sinatra::Base
       @recipe.delete
     end
 
-    redirect '/'
+    redirect '/recipes'
   end
 end
