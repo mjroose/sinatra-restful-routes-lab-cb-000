@@ -7,11 +7,11 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/new' do
+  get '/recipes/new' do
     erb :new
   end
 
-  get '/:id' do
+  get '/recipes/:id' do
     if @recipe = Recipe.find(params[:id])
       erb :show
     else
